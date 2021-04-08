@@ -1,0 +1,84 @@
+{
+  "project_info": {
+    "project_number": "370786276076",
+    "project_id": "bdhotel-db3b9",
+    "storage_bucket": "bdhotel-db3b9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:370786276076:android:da6188a7e5c16d8291cbc9",
+        "android_client_info": {
+          "package_name": "com.tanvircodder.bdhotel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "370786276076-8aboe6u3od7aeka33gmhpbqgib1jl3ga.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tanvircodder.bdhotel",
+            "certificate_hash": "f457b299993067b58a4fa81fdc3b5be511991f03"
+          }
+        },
+        {
+          "client_id": "370786276076-1jbcbso14rsh1pfqvai6l6n4s7f1jk4s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8zgBwEzshjpWdAeTaI7-rGHq11AFdiAM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "370786276076-1jbcbso14rsh1pfqvai6l6n4s7f1jk4s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:370786276076:android:27e16f84da0949f991cbc9",
+        "android_client_info": {
+          "package_name": "com.tanvircodder.hotelbooking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "370786276076-cfvb9cav5hgf28semflc3d78d7ml8hh0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tanvircodder.hotelbooking",
+            "certificate_hash": "f457b299993067b58a4fa81fdc3b5be511991f03"
+          }
+        },
+        {
+          "client_id": "370786276076-1jbcbso14rsh1pfqvai6l6n4s7f1jk4s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8zgBwEzshjpWdAeTaI7-rGHq11AFdiAM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "370786276076-1jbcbso14rsh1pfqvai6l6n4s7f1jk4s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
