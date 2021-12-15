@@ -1,5 +1,6 @@
 package com.tanvircodder.bdhotel.network;
 
+import android.content.ContentValues;
 import android.content.Context;
 
 import com.tanvircodder.bdhotel.util.Utility;
@@ -17,7 +18,8 @@ public class JsonParsing {
     private static final String HOTEL_NAME = "location";
     private static final String HOTEL_STAR= "star";
 //    to hendle the list we are going to create an list ..//
-    private static List<Utility> mStoreTheData  = null;
+//    private static List<Utility> mStoreTheData  = null;
+    private static List<Utility> mStoreTheData = null;
     public static final List<Utility> jsonParsing(Context context,String uriResponse) throws JSONException {
         JSONArray jsonArray =new JSONArray(uriResponse);
 //        now i am going to create the instance of the list..//
@@ -32,7 +34,9 @@ public class JsonParsing {
             String hotel_star = jsonObject.getString(HOTEL_STAR);
 //            now i am going to add the data to the list..///
             mStoreTheData.add(new Utility(hotel_name,hotel_location,hotel_star));
+//            mStoreTheData.add(i,values);
         }
+        System.out.println(mStoreTheData);
         return mStoreTheData;
     }
 }

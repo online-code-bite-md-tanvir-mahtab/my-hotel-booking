@@ -9,15 +9,20 @@ import androidx.loader.content.Loader;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.installations.local.PersistedInstallationEntry;
 import com.tanvircodder.bdhotel.network.JsonParsing;
 import com.tanvircodder.bdhotel.util.NetworkUtil;
 import com.tanvircodder.bdhotel.util.Utility;
@@ -26,8 +31,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List> {
+public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List> , ListAdapter.ListItemClickListener {
     private static final int LOADER_ID = 0;
+    private static final String LOG_TAG = MainActivity.class.getSimpleName();
 
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
@@ -41,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         mFirebaseAuth = FirebaseAuth.getInstance();
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mAdapter = new ListAdapter(this);
+        mAdapter = new ListAdapter(this,this);
         mRecyclerView.setAdapter(mAdapter);
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -101,6 +107,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                     URL url = NetworkUtil.buildUrl();
                     String request = NetworkUtil.URLHttpRequest(url);
                     List<Utility> jsonResponse = JsonParsing.jsonParsing(MainActivity.this,request);
+                    Log.e(LOG_TAG,"The response : "+jsonResponse);
                     return jsonResponse;
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -140,4 +147,24 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         return super.onOptionsItemSelected(item);
     }
+
+
+
+
+
+    @Override
+    public void onListItemClick(int clickedItemIndex) {
+        Toast.makeText(this,"The position : " + clickedItemIndex,Toast.LENGTH_SHORT).show();
+//        Intent intent = new Intent(MainActivity.this,BokkingActivity.class);
+
+        Bundle bundle = new Bundle();
+        bundle.putInt("heotel_id",clickedItemIndex);
+//        startActivity(intent);
+        Intent intent = new Intent(this,DetailActivity.class);
+//        nwo i am going to put the id humber into intent..//
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+
+
 }

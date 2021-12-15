@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,13 +13,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.tanvircodder.bdhotel.util.Utility;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder>{
     private List<Utility> mData;
     private Context mContext;
-    public ListAdapter(Context context){
+    final private ListItemClickListener mOnClickListener;
+//    now i am going to create an interface..//
+public interface ListItemClickListener {
+    void onListItemClick(int clickedItemIndex);
+}
+    public ListAdapter(Context context,ListItemClickListener listener){
         mContext = context;
+        mOnClickListener = listener;
     }
     @NonNull
     @Override
@@ -51,7 +59,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder>{
         }
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView mHotel_name;
         TextView mHotel_location;
         TextView mHotel_star;
@@ -60,6 +68,15 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder>{
             mHotel_name = (TextView)itemView.findViewById(R.id.hotel_name);
             mHotel_location = (TextView)itemView.findViewById(R.id.hotel_location);
             mHotel_star = (TextView) itemView.findViewById(R.id.hotel_star);
+            itemView.setOnClickListener(this);
+        }
+
+
+        @Override
+        public void onClick(View v) {
+            int position = getAdapterPosition();
+
+            mOnClickListener.onListItemClick(position);
         }
     }
 }

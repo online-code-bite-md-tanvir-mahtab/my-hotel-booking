@@ -4,6 +4,6 @@
     <item
         android:id="@+id/sign_in"
         app:showAsAction="ifRoom"
-        android:title="SignIn"
+        android:title="Sign Out"
         android:orderInCategory="1"/>
 </menu>

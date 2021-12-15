@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailActivity"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/detail_hotel_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="5 Star Hotel"
+        android:textAlignment="center"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:textSize="25dp"
+        android:padding="10dp"/>
+    <TextView
+        android:id="@+id/detail_hotel_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="11 kda khulna"
+        android:fontFamily="sans-serif-black"
+        android:textSize="20dp"
+        android:paddingLeft="20dp"/>
+    <TextView
+        android:id="@+id/detail_hotel_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/description"
+        android:fontFamily="sans-serif-black"
+        android:textSize="15dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:padding="10dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Token:"/>
+        <TextView
+            android:id="@+id/detail_hotel_token"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:text="20"
+            android:gravity="center_horizontal" />
+    </LinearLayout>
+
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="jenarateTheToken"
+        android:text="token discount"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_gravity="bottom"
+        android:text="Book Now"
+        android:onClick="bookOnClick"/>
+
+</LinearLayout>
